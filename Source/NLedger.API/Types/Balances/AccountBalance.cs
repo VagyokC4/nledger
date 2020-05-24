@@ -1,4 +1,4 @@
-namespace NLedger.API.Types.Reports.Balances
+namespace NLedger.API.Types.Balances
 {
     public class AccountBalance
     {

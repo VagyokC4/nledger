@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using NLedger.API.Extensions;
 
-namespace NLedger.API.Types.Reports.Balances
+namespace NLedger.API.Types.Balances
 {
     public class BalanceReport
     {
@@ -13,4 +13,4 @@ namespace NLedger.API.Types.Reports.Balances
             return new BalanceReport().BuildBalanceReport(ledgerResponse);
         }
     }
-}                                                   
+}

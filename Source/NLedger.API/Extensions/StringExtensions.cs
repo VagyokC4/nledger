@@ -6,6 +6,11 @@ namespace NLedger.API.Extensions
 {
     public static class StringExtensions
     {
+        /// <summary>
+        ///     Normalize string removing ANSI characters.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string Normalize(this string value)
         {
             return value
@@ -15,12 +20,22 @@ namespace NLedger.API.Extensions
                 .Replace("[34m", "");
         }
 
+        /// <summary>
+        ///     Split string into lines
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static List<string> ToLines(this string value)
         {
-            return value.Lines().ToList();
+            return value.GetLines().ToList();
         }
 
-        public static IEnumerable<string> Lines(this string value)
+        /// <summary>
+        ///     Get lines from string
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static IEnumerable<string> GetLines(this string value)
         {
             using (var stringReader = new StringReader(value))
             {

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace NLedger.API.Types.Reports.Balances
+namespace NLedger.API.Types.Balances
 {
     public class AccountBalances
     {

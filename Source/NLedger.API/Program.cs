@@ -1,42 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using NLedger.API.Types.Reports.Balances;
+using NLedger.API.Extensions;
 using ServiceStack;
 
 namespace NLedger.API
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var sw     = new Stopwatch();
-            var times  = new List<long>();
-            var ledger = NLedgerProxy.FromLedgerFile(@"l:\test\drewr3.dat");
-            var ledger2 = NLedgerProxy.FromLedgerFile(@"D:\Dev\Work\Enumis\npo-ledger-cli\accounts\books.ledger");
+            var sw    = new Stopwatch();
+            var times = new List<long>();
 
-            for (int i = 0; i < 10; i++)
+            var client1 = NLedgerProxy.FromLedgerFile(@"l:\test\drewr3.dat");
+            var client2 = NLedgerProxy.FromLedgerFile(@"D:\Dev\Work\Enumis\npo-ledger-cli\accounts\books.ledger");
+
+            for (var i = 0; i < 10; i++)
             {
                 sw.Restart();
 
                 if (i == 0)
                 {
-                    ledger.QueryLedger("reload");
-                    ledger2.QueryLedger("reload");
+                    client1.QueryLedger("reload");
+                    client2.QueryLedger("reload");
                 }
                 else
                 {
-                    ledger.QueryLedger(i % 2 == 0 ? "bal" : "reg");
-                    ledger2.QueryLedger(i % 2 == 1 ? "bal" : "reg");
+                    client1.QueryLedger(i % 2 == 0 ? "bal" : "reg");
+                    client2.QueryLedger(i % 2 == 1 ? "bal" : "reg");
                 }
-                
-                // var reportJson = BalanceReport
-                // .FromLedgerResponse(ledger.QueryLedger("bal"))
-                // .ToJson();
 
                 sw.Stop();
                 times.Add(sw.ElapsedMilliseconds);
             }
+
+            sw.Restart();
+
+            var client1ReportJson = client1.QueryLedger("bal").AsBalanceReport().ToJson();
+            var client2ReportJson = client2.QueryLedger("bal").AsBalanceReport().ToJson();
+
+            sw.Stop();
+            times.Add(sw.ElapsedMilliseconds);
 
             ;
         }
