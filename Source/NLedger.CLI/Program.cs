@@ -6,38 +6,42 @@
 // Copyright (c) 2003-2018, John Wiegley.  All rights reserved.
 // See LICENSE.LEDGER file included with the distribution for details and disclaimer.
 // **********************************************************************************
-using NLedger.Abstracts.Impl;
-using NLedger.Utility;
-using NLedger.Utility.Settings;
+
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NLedger.Utility.Settings;
 
 namespace NLedger.CLI
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // System.Diagnostics.Debugger.Launch(); // This debugging option might be useful in case of troubleshooting of NLTest issues
+
+
+            // var reportJson = BalanceReport
+            //     .FromLedgerResponse(new NLedgerProxy().CaptureResponse(@"l:\test\drewr3.dat", "bal"))
+            //     .ToJson();
+            //
+            // var br2 = BalanceReport.FromLedgerResponse(new NLedgerProxy().CaptureResponse(@"D:\Dev\Work\Enumis\npo-ledger-cli\accounts\books.ledger", "bal")).ToJson();
+            //
+            // ;
+
 
             var main = new Main();
             new NLedgerConfiguration().ConfigureConsole(MainApplicationContext.Current);
 
-            var argString = GetCommandLine(); // This way is preferrable because of double quotas that are missed by using args
-            Environment.ExitCode = main.Execute(argString);
+            var argString = @"-f l:\test\drewr3.dat"; //GetCommandLine(); // This way is preferrable because of double quotas that are missed by using args
+
+            Environment.ExitCode = main.Execute($"{argString} bal");
         }
 
         private static string GetCommandLine()
         {
             // returns the original command line arguments w/o execution file name
             var commandLine = Environment.CommandLine;
-            int pos = commandLine[0] == '"' ? pos = commandLine.IndexOf('"', 1) : commandLine.IndexOf(' ');
-            return pos >= 0 ? commandLine.Substring(pos + 1).TrimStart() : String.Empty;
+            int pos         = commandLine[0] == '"' ? pos = commandLine.IndexOf('"', 1) : commandLine.IndexOf(' ');
+            return pos >= 0 ? commandLine.Substring(pos + 1).TrimStart() : string.Empty;
         }
     }
 }
