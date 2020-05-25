@@ -7,18 +7,11 @@ namespace NLedger.API
 {
     public class NLedgerRequestConsumer : IConsumer<NLedgerRequest>
     {
-        private static readonly object lockObject = new object();
-
-        public Task Consume(ConsumeContext<NLedgerRequest> context)
+        public async Task Consume(ConsumeContext<NLedgerRequest> context)
         {
-            var queryResult = NLedgerProxy.FromLedgerFile(context.Message.LedgerFile).QueryLedger(context.Message.LedgerQuery);
+            var queryResult = await NLedgerProxy.FromLedgerFile(context.Message.LedgerFile).QueryLedger(context.Message.LedgerQuery).ConfigureAwait(false);
 
-            context.Respond(new NLedgerResponse
-            {
-                Result = queryResult.Exception.ToNullIfEmpty() ?? queryResult.Result
-            });
-
-            return Task.CompletedTask;
+            await context.RespondAsync(queryResult.ConvertTo<NLedgerResponse>());
         }
     }
 }

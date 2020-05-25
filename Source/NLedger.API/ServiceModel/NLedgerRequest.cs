@@ -8,6 +8,7 @@ namespace NLedger.API.ServiceModel
 
     public class NLedgerResponse
     {
-        public string Result { get; set; }
+        public string Result    { get; set; }
+        public string Exception { get; set; }
     }
 }

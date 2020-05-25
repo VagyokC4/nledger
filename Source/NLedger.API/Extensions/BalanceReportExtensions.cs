@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using NLedger.API.Types.Balances;
@@ -55,21 +57,14 @@ namespace NLedger.API.Extensions
             }
 
             // Normalize ToLines
-            var lines = nLedgerReport.Normalize().ToLines();
+            var lines = nLedgerReport.GetLines().ToList();
 
             // Parse Lines
-            foreach (var line in lines)
-                if (line.StartsWith("--------------------"))
-                {
-                    // Second to last line, we can record balance and exit early
-                    balanceReport.Balance = lines.Last().SplitOnLast(' ').Last().ToDecimal();
-                    break;
-                }
-                else
-                {
-                    // Add Current Line
-                    PopulateBalanceReportLine(line);
-                }
+            foreach (var line in lines.Take(lines.Count - 2))
+                PopulateBalanceReportLine(line);
+
+            // Set Balance
+            balanceReport.Balance = lines.Last().SplitOnLast(' ').Last().ToDecimal();
 
             // Return Balance Report
             return balanceReport;
@@ -77,7 +72,13 @@ namespace NLedger.API.Extensions
 
         private static decimal GetAccountBalance(string line)
         {
-            return line.Substring(0, 22).Trim().Substring(1).ToDecimal();
+            var parts = line.Trim().Split("  ", StringSplitOptions.RemoveEmptyEntries);
+
+            var value = parts.First();
+
+            var amount = char.IsDigit(value.Last()) ? value : value.SplitOnLast(" ").First();
+
+            return decimal.Parse(amount, NumberStyles.Any);
         }
     }
 }
