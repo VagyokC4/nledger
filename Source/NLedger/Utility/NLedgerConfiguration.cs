@@ -6,6 +6,14 @@
 // Copyright (c) 2003-2018, John Wiegley.  All rights reserved.
 // See LICENSE.LEDGER file included with the distribution for details and disclaimer.
 // **********************************************************************************
+#if NETSTANDARD
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NLedger.Utility.Settings.CascadeSettings;
+using NLedger.Utility.Settings.CascadeSettings.Definitions;
+#else
 using NLedger.CLI.CascadeSettings;
 using NLedger.CLI.CascadeSettings.Definitions;
 using System;
@@ -13,7 +21,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+#endif
 namespace NLedger.CLI
 {
     /// <summary>
