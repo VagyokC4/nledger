@@ -6,23 +6,13 @@
 // Copyright (c) 2003-2018, John Wiegley.  All rights reserved.
 // See LICENSE.LEDGER file included with the distribution for details and disclaimer.
 // **********************************************************************************
-#if NETSTANDARD
 using System;
 using System.Collections.Generic;
 using System.IO;
 using NLedger.Utility.Settings.CascadeSettings;
 using NLedger.Utility.Settings.CascadeSettings.Sources;
-#else
-using NLedger.CLI.CascadeSettings;
-using NLedger.CLI.CascadeSettings.Sources;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-#endif
-namespace NLedger.CLI
+
+namespace NLedger.Utility
 {
     /// <summary>
     /// Specifies the sources where NLedger settings can be retrieved. Part of NLedgerConfiguration.

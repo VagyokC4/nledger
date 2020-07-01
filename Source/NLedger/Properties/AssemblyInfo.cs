@@ -6,8 +6,6 @@
 // Copyright (c) 2003-2018, John Wiegley.  All rights reserved.
 // See LICENSE.LEDGER file included with the distribution for details and disclaimer.
 // **********************************************************************************
-#if NETSTANDARD
-#else
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -42,7 +40,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.7.*")]
+[assembly: AssemblyVersion("0.7.1")]
 
 [assembly: AssemblyInformationalVersion("0.7 Public Beta")]
-#endif
