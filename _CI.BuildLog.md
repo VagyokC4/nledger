@@ -19,6 +19,38 @@ the latest build status is:
 
 
 ***
+#### ![Succeeded](https://img.shields.io/badge/Build-Succeeded-green.svg) Build [62] 2020/03/25 16:47:04
+
+>Build #62; Status:Succeeded
+
+>Queued by Microsoft.VisualStudio.Services.TFS; Reason:IndividualCI
+
+>Requested for Microsoft.VisualStudio.Services.TFS (Email:\*)
+
+>Latest commit: f20a3f400f4e53e74a5c02e5f0bef39a34e5996c
+
+Build logs: [NLedger-BuildLogs-v0.8.Build.62.zip](https://www.dropbox.com/s/fcqtsxjc63hm3fu/NLedger-BuildLogs-v0.8.Build.62.zip?dl=0) MD5: 43BAB3403885FE876CC93A5166DDE13E
+
+Install package: [NLedger-v0.8.Build.62.zip](https://www.dropbox.com/s/g4e3djqf8z3pfla/NLedger-v0.8.Build.62.zip?dl=0) MD5: ECD27261A65B3B72F0290A5A1E1CE62E
+
+MSI package: [NLedger-v0.8.Build.62.msi](https://www.dropbox.com/s/qmgl602mdyxw0r2/NLedger-v0.8.Build.62.msi?dl=0) MD5: A39847ECCC1A8A0249CDDB7D463D4514
+***
+#### ![Succeeded](https://img.shields.io/badge/Build-Succeeded-green.svg) Build [61] 2020/03/23 17:24:55
+
+>Build #61; Status:Succeeded
+
+>Queued by Dmitry Merzlyakov; Reason:Manual
+
+>Requested for Dmitry Merzlyakov (Email:dmitry_merzlyakov@hotmail.com)
+
+>Latest commit: 6d95ba325351eedbe6a229771b90f1e5eaf6dfb3
+
+Build logs: [NLedger-BuildLogs-v0.8.Build.61.zip](https://www.dropbox.com/s/56qphitx390gsk9/NLedger-BuildLogs-v0.8.Build.61.zip?dl=0) MD5: 3C7BFC225F2FB2F813998D049E48C6E1
+
+Install package: [NLedger-v0.8.Build.61.zip](https://www.dropbox.com/s/onpvc6fmgk9c5dk/NLedger-v0.8.Build.61.zip?dl=0) MD5: 698B25AE7B4E640042A428E620F67C44
+
+MSI package: [NLedger-v0.8.Build.61.msi](https://www.dropbox.com/s/e6pes2g38qebz20/NLedger-v0.8.Build.61.msi?dl=0) MD5: 4697804179C65E2632F8CE0675A768CF
+***
 #### ![Succeeded](https://img.shields.io/badge/Build-Succeeded-green.svg) Build [59] 2018/08/11 22:18:00
 
 >Build #59; Status:Succeeded
@@ -339,6 +371,8 @@ Build logs: [NLedger-BuildLogs-v0.6.Build.38.zip](https://www.dropbox.com/s/1x3t
 
 Install package: [NLedger-v0.6.Build.38.zip](https://www.dropbox.com/s/jsxn0doeyi4to4l/NLedger-v0.6.Build.38.zip?dl=0) MD5: 927B428060DF7025FA18E26FFE20D803
 ***
+
+
 
 
 
