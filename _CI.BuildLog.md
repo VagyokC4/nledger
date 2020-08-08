@@ -19,6 +19,54 @@ the latest build status is:
 
 
 ***
+#### ![Succeeded](https://img.shields.io/badge/Build-Succeeded-green.svg) Build [65] 2020/07/05 11:14:57
+
+>Build #65; Status:Succeeded
+
+>Queued by Microsoft.VisualStudio.Services.TFS; Reason:IndividualCI
+
+>Requested for Microsoft.VisualStudio.Services.TFS (Email:\*)
+
+>Latest commit: fe81b3745019b1fffb70002e5c406796df99193d
+
+Build logs: [NLedger-BuildLogs-v0.8.Build.65.zip](https://www.dropbox.com/s/5gqtx2139jbxxrz/NLedger-BuildLogs-v0.8.Build.65.zip?dl=0) MD5: 0108286BA68B48AC41E1A335AE3DF470
+
+Install package: [NLedger-v0.8.Build.65.zip](https://www.dropbox.com/s/bam43xs4fbb2akt/NLedger-v0.8.Build.65.zip?dl=0) MD5: 78D9526C343CDFB5D16EBFEBD942EFA1
+
+MSI package: [NLedger-v0.8.Build.65.msi](https://www.dropbox.com/s/iyj6diukr7hi7dv/NLedger-v0.8.Build.65.msi?dl=0) MD5: F31B55058223CB53DA22014FE7961D8F
+***
+#### ![Succeeded](https://img.shields.io/badge/Build-Succeeded-green.svg) Build [64] 2020/07/05 09:57:39
+
+>Build #64; Status:Succeeded
+
+>Queued by Dmitry Merzlyakov; Reason:Manual
+
+>Requested for Dmitry Merzlyakov (Email:dmitry_merzlyakov@hotmail.com)
+
+>Latest commit: feb697f67e280139912b084868b35586eae1aa6c
+
+Build logs: [NLedger-BuildLogs-v0.8.Build.64.zip](https://www.dropbox.com/s/dq7qmdwaworv6sg/NLedger-BuildLogs-v0.8.Build.64.zip?dl=0) MD5: ABFC1F31083E4F39D79EC8794217A2B5
+
+Install package: [NLedger-v0.8.Build.64.zip](https://www.dropbox.com/s/qgn2lun85cf81bt/NLedger-v0.8.Build.64.zip?dl=0) MD5: 69103CBD6EA9EB432F4677873DE90E28
+
+MSI package: [NLedger-v0.8.Build.64.msi](https://www.dropbox.com/s/chh1r3xe6ims3lr/NLedger-v0.8.Build.64.msi?dl=0) MD5: 5B210BE64502D7BB1F2E6872403AC698
+***
+#### ![Failed](https://img.shields.io/badge/Build-Failed-red.svg) Build [63] 2020/07/04 22:34:25
+
+>Build #63; Status:Failed
+
+>Queued by Microsoft.VisualStudio.Services.TFS; Reason:IndividualCI
+
+>Requested for Microsoft.VisualStudio.Services.TFS (Email:\*)
+
+>Latest commit: 072657a48d9e78f39c575746bc6f2d837d15c898
+
+Build logs: [NLedger-BuildLogs-v0.8.Build.63.zip](https://www.dropbox.com/s/hjyez2qj2hwntdz/NLedger-BuildLogs-v0.8.Build.63.zip?dl=0) MD5: C5A3F9E227BDE0F1479A6E3E00E3B720
+
+Install package: Not created
+
+MSI package: Not created
+***
 #### ![Succeeded](https://img.shields.io/badge/Build-Succeeded-green.svg) Build [62] 2020/03/25 16:47:04
 
 >Build #62; Status:Succeeded
@@ -371,6 +419,9 @@ Build logs: [NLedger-BuildLogs-v0.6.Build.38.zip](https://www.dropbox.com/s/1x3t
 
 Install package: [NLedger-v0.6.Build.38.zip](https://www.dropbox.com/s/jsxn0doeyi4to4l/NLedger-v0.6.Build.38.zip?dl=0) MD5: 927B428060DF7025FA18E26FFE20D803
 ***
+
+
+
 
 
 
