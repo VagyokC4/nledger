@@ -6,7 +6,6 @@
 // Copyright (c) 2003-2020, John Wiegley.  All rights reserved.
 // See LICENSE.LEDGER file included with the distribution for details and disclaimer.
 // **********************************************************************************
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLedger.Scopus;
 using NLedger.Times;
 using NLedger.Values;
@@ -16,17 +15,18 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace NLedger.Tests
 {
-    [TestClass]
     [TestFixtureInit(ContextInit.InitMainApplicationContext | ContextInit.InitTimesCommon)]
     public class SelectTests : TestFixture
     {
-        [TestMethod]
+        [Fact]
         public void Select_SelectCommand_GetEmptyAccountsListTest()
         {
-            MainApplicationContext.Current.SetVirtualConsoleProvider(() => new TestConsoleProvider());
+            MainApplicationContext.Current.SetApplicationServiceProvider(new ApplicationServiceProvider
+                (virtualConsoleProviderFactory: () => new TestConsoleProvider()));
 
             Report report = new Report(new Session());
             StringWriter output = new StringWriter();
@@ -38,8 +38,8 @@ namespace NLedger.Tests
             Value result = Select.SelectCommand(scope);
             string outString = output.ToString();
 
-            Assert.IsTrue(String.IsNullOrEmpty(outString)); // No accounts
-            Assert.IsTrue(result.AsBoolean);
+            Assert.True(String.IsNullOrEmpty(outString)); // No accounts
+            Assert.True(result.AsBoolean);
         }
     }
 }

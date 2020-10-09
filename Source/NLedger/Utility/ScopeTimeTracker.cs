@@ -6,43 +6,36 @@
 // Copyright (c) 2003-2020, John Wiegley.  All rights reserved.
 // See LICENSE.LEDGER file included with the distribution for details and disclaimer.
 // **********************************************************************************
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLedger.IntegrationTests.unit
+namespace NLedger.Utility
 {
-    public static class Boost
+    public class ScopeTimeTracker : IDisposable
     {
-        public static void CheckThrow<T>(Action action) where T : Exception
+        public ScopeTimeTracker(Action<TimeSpan> setResult)
         {
-            try
-            {
-                action();
-            }
-            catch (Exception ex)
-            {
-                Assert.AreEqual(typeof(T), ex.GetType());
-                return;
-            }
-            Assert.Fail("No exception");
+            if (setResult == null)
+                throw new ArgumentNullException(nameof(setResult));
+
+            SetResult = setResult;
+            Stopwatch = Stopwatch.StartNew();
         }
 
-        public static void CheckThrow<T,R>(Func<R> action) where T : Exception
+        public void Dispose()
         {
-            try
+            if (Stopwatch.IsRunning)
             {
-                action();
+                Stopwatch.Stop();
+                SetResult(Stopwatch.Elapsed);
             }
-            catch (Exception ex)
-            {
-                Assert.AreEqual(typeof(T), ex.GetType());
-                return;
-            }
-            Assert.Fail("No exception");
         }
+
+        private readonly Action<TimeSpan> SetResult;
+        private readonly Stopwatch Stopwatch;        
     }
 }
